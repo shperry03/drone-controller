@@ -60,6 +60,8 @@ const handleError = err => {
 //     socket.emit("status", "CONNECTED");
 // });
 
+
+// Default frequency and amplitude for sending to drone
 const frequency = 3500;
 let amplitude = 30;
 
