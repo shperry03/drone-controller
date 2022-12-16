@@ -50,16 +50,6 @@ const handleError = err => {
     }
 };
 
-//When the server comes on:
-// io.on("connect", socket => {
-//     setInterval(moveDrone, frequency);
-//     socket.on("command", command => {
-//       console.log("command sent from browser: ", command);
-//       drone.send(command, 0, command.length, Port, Host, handleError);
-//     });
-//     socket.emit("status", "CONNECTED");
-// });
-
 
 // Default frequency and amplitude for sending to drone
 const frequency = 3500;
@@ -102,10 +92,10 @@ function moveDrone(direction){
 
 server.listen("6767", () => {
     console.log("up and running...");
-  });
+});
   
 drone.on("message", message => {
-    console.log("${message}");
+    console.log('${message}');
 });
   
 drone.send("command", 0, 8, Port, Host, handleError);

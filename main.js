@@ -27,21 +27,8 @@ const createWindow = () => {
       contextIsolation: false
     }
   })
-  // and load the index.html of the app.
-  console.log("Connecting to drone....")
 
-  const drone = dgram.createSocket("udp4");
-  drone.bind(Port);
-  const droneState = dgram.createSocket("udp4");
-  droneState.bind(StatePort);
-  io.on("connect", socket => {
-    setInterval(moveDrone, frequency);
-    socket.on("command", command => {
-      console.log("command sent from browser: ", command);
-      drone.send(command, 0, command.length, Port, Host, handleError);
-    });
-    socket.emit("status", "CONNECTED");
-  });
+  connect_to_drone()
 
   mainWindow.loadFile('src/index.html')
   // Open the DevTools.
@@ -70,3 +57,21 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+
+const connect_to_drone = () =>{
+  console.log("Connecting to drone....")
+
+  const drone = dgram.createSocket("udp4");
+  drone.bind(Port);
+  const droneState = dgram.createSocket("udp4");
+  droneState.bind(StatePort);
+  io.on("connect", socket => {
+    setInterval(moveDrone, frequency);
+    socket.on("command", command => {
+      console.log("command sent from browser: ", command);
+      drone.send(command, 0, command.length, Port, Host, handleError);
+    });
+    socket.emit("status", "CONNECTED");
+  });
+}
