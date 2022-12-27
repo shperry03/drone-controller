@@ -7,23 +7,44 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <title>Drone-Controller - V1</title>
-    <link rel="stylesheet" href="../assets/css/main.css"
+    <link rel="stylesheet" href="../assets/css/main.css">
   </head>
   <body>
-    <center><h1>Drone Controller V1.0 - Example</h1>
-      <div>
-        <div>
-          <button class="button-28" id="up-button">UP</button>
+    <center>
+
+      <div class="header">
+        <h1>Drone Controller&nbsp;&nbsp;<img src="../assets/icon.png" height="32" width="auto"></h1>
+      </div>
+      <div class="buttons">
+        <div class="buttons-left">
+          <div>
+            <button class="button-28" id="forward-button">FORWARD</button>
+            <br />
+            <br />
+          </div>
+          <div>
+            <button class="button-28" id="left-button">LEFT</button>
+            <button class="button-28" id="right-button">RIGHT</button>
+            <br />
+            <br />
+          </div>
+          <div>
+            <button class="button-28" id="backward-button">BACKWARD</button>
+          </div>
         </div>
-        <div>
-          <button class="button-28" id="left-button">LEFT</button>
-          <button class="button-28" id="right-button">RIGHT</button>
-        </div>
-        <div>
-          <button class="button-28" id="down-button">DOWN</button>
+        <div class="buttons-right">
+          <div>
+            <br />
+            <br />
+            <button class="button-28-small" id="up-button">UP</button>
+            <br />
+            <br />
+          </div>
+          <div>
+            <button class="button-28-small" id="down-button">DOWN</button>
+          </div>
         </div>
       </div>
-      <p>Samuel Perry 10/06/22</p>
     </center>
 
     <!-- You can also require other files to run in this process -->

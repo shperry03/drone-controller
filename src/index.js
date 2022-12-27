@@ -36,6 +36,14 @@ downButton.addEventListener('click', function(event){
     moveDrone("down")
 })
 
+forwardButton.addEventListener('click', function(event){
+    moveDrone("forward")
+})
+
+backwardButton.addEventListener('click', function(event){
+    moveDrone("backward")
+})
+
 //backend: goes from robot to backend
 // const drone = dgram.createSocket("udp4");
 // drone.bind(Port);
@@ -83,6 +91,10 @@ function moveDrone(direction){
         command("right", amplitude);
     } else if (direction == "left"){
         command("left", amplitude);
+    } else if (direction == "forward"){
+        command("forward", amplitude);
+    } else if (direction == "backward"){
+        command("backward", amplitude);
     }
     
     if (drone_takeoff == false) {
